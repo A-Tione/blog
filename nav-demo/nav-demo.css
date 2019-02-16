@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    background: black;
+    color: white;
+}
+a{text-decoration: none;}
+/*头部*/
+.header{
+    margin: 20px 16px;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.header .logo{
+    float: left;
+    font-family: 'Arial Black';
+    font-size: 24px;
+    padding-top: 3px;
+}
+.header .logo .rs{
+    margin-right: 4px;
+    color: #e6686a;
+}
+.header .logo .card{
+    color: #9a9da2;
+}
+.header .nav{
+    float: right;
+}
+.nav>ul{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+.nav>ul>li{
+    float: left;
+    display: block;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    margin: 7px 17px 0;
+}
+.nav>ul>li:hover{
+    border-bottom: 3px solid #e06567;
+}
+.nav>ul>li>a{
+    color: #b7b7b7;
+    font-weight: 900;
+}
+
+/*内容*/
+main{
+    margin-top: 50px;
+}
