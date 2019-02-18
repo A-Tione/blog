@@ -1,9 +1,13 @@
 body{
     margin: 0;
-    background: white;
+    background: #efefef;
     color: black;
 }
 a{text-decoration: none;}
+ol{padding: 0;}
+li{
+    list-style: none;
+}
 /*头部*/
 .header{
     position: fixed;
@@ -12,6 +16,8 @@ a{text-decoration: none;}
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
 }
 .clearfix::after{
     content: '';
@@ -46,9 +52,11 @@ a{text-decoration: none;}
     border-bottom: 3px solid transparent;
     margin: 7px 17px 0;
     padding: 4px 0 7px;
+    transition: all 0.3s;
 }
 .nav>ul>li:hover{
     border-bottom: 3px solid #e06567;
+    transform:rotate(360deg);
 }
 .nav>ul>li>a{
     color: #b7b7b7;
@@ -70,11 +78,11 @@ a{text-decoration: none;}
 
 /*内容*/
 main{
-    margin-top: 50px;
+    margin-top: -300px;
 }
 main>.card{
     background-color: white;
-    max-width: 900px;
+    max-width: 930px;
     margin: auto;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
 }
@@ -141,4 +149,131 @@ main> .card .media>a{
     padding: 5px 0;
     border-radius: 50%;
     margin: 16px;
+}
+main> .card .media>a:hover{
+    background: #cf5d5f;
+}
+main>.card svg{
+    width: 30px;
+    height: 30px;
+    fill: white;
+    vertical-align: top;
+}
+.down-wrapper{
+    text-align: center;
+}
+.down-wrapper a{
+    display: inline-block;
+    padding: 20px 55px;
+    border: 1px solid #cdcfd1;
+    border-radius: 4px;
+    background: #efefef;
+    color: #3d4451;
+    font-weight: 900;
+    margin: 16px 0;
+    transition: box-shadow 0.2s;
+}
+.down-wrapper a:hover{
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.2);
+}
+.text-two{
+    font-family: cursive;
+    margin: auto;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 20px;
+}
+section.skill{
+    max-width: 930px;
+    margin: auto;
+
+}
+section h2{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 900;
+}
+.skill ol{
+    background: white;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 42px 50px 10px;
+    margin-top: 30px;
+}
+.skill ol li{
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 48%;
+}
+.skill ol li:nth-child(even){
+    float: right;
+}
+.skill h3{
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+    font-weight: normal;
+}
+.skill .progressBar{
+    height: 5px;
+    background: #FAE1E1;
+    border-radius: 3px;
+    margin-bottom: 40px;
+}
+.skill .progress{
+    width: 50%;
+    height: 100%;
+    background: #E6686A;
+    border-radius: 3px;
+}
+.portfolio{
+    text-align: center;
+    max-width: 930px;
+    margin:60px auto 200px;
+}
+.portfolio>nav{
+    display: inline-block;
+    vertical-align: top;
+}
+.portfolio>nav li{
+    float: left;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.portfolio>nav li:first-child{
+    margin: 0;
+}
+.portfolio>nav .bar{
+    height: 5px;
+    background: white;
+    margin-top: 5px;
+    margin-bottom: 28px;
+    border-radius: 2px;
+}
+.portfolio > nav .bar-inner{
+    height: 100%;
+    background: #E6686A;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+.portfolio > nav .bar.state-1 .bar-inner{
+    margin-left: 0;
+    width: 40px;
+}
+.portfolio > nav .bar.state-2 .bar-inner{
+    margin-left: 63px;
+    width: 50px;
+}
+.portfolio > nav .bar.state-3 .bar-inner{
+    margin-left: 140px;
+    width: 95px;
+}
+.jobs{
+    position: relative;
+}
+.big,.small{
+    position: absolute;
 }
