@@ -53,3 +53,14 @@ a{text-decoration: none;}
 main{
     margin-top: 50px;
 }
+
+
+.yuan{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: ;
+    -moz-border-radius: ;
+    border-radius: ;
+    position: absolute;
+}
