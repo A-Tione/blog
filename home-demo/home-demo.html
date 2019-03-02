@@ -6,69 +6,136 @@
     <link rel="stylesheet" href="./home-demo.css">
 </head>
 <body>
-<header></header>
-<main id="mainDemo"></main>
-<footer></footer>
+<main>
+    <div class="wrapper" id="main"></div>
+</main>
 </body>
 <script>
-    var key = {
-        0:{0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p',length:'10'},
-        1:{0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l',length:'9'},
-        2:{0:'z',1:'x',2:'c',3:'v',4:'b',5:'n',6:'m',length:'7'},
-        'length': 3
-    };
-    var hash = {
-        'q': 'qq.com',
-        'w': 'weibo.com',
-        'e': 'ele.me',
-        'r': 'renren.com',
-        't': 'tianya.com',
-        'y': 'youtu.com',
-        'u': 'uc.com',
-        'i': 'iqiyi.com',
-        'p': undefined,
-        'a': 'acfun.tv',
-        's': 'sohu.com',
-        'z': 'zhihu.com',
-        'm': 'www.mcdonalds.com.cn'
-    };
-    //取localStorage中的wangzhi对应的hash
-    wangzhi = JSON.parse(localStorage.getItem('wangzhi') || null);
-    if (wangzhi){
-        hash = wangzhi
+    //1、初始化数据
+    let data = init();
+        key = data['key'];
+        hash = data['hash'];
+
+    //2、生成键盘
+    //遍历keys，生成kbd标签
+    generateKeyboard(key,hash);
+
+    //3、监听用户敲击键盘事件
+    listenToUser(hash);
+
+    //工具函数
+    function getFromLocalStorage(name){
+        return JSON.parse(localStorage.getItem(name) || null);
     }
-    //遍历key，产生kbd标签
-    index=0;
-    while (index<key['length']) {
-        div1 = document.createElement('div');
-        mainDemo.appendChild(div1);
-        row = key[index];
-        index2 = 0;
-        while (index2<row['length']) {
-            kbdDemo = document.createElement('kbd');
-            kbdDemo.textContent = row[index2];
-            buttonDemo = document.createElement('button');
-            buttonDemo.textContent = '编辑';
-            buttonDemo.id = row[index2];
-            buttonDemo.onclick = function (d) {
-                key = d['target']['id'];
-                x = prompt('给我一个网址');
-                hash[key] = x;
-                localStorage.setItem('wangzhi',JSON.stringify(hash));
+
+    function box(html) {
+        return document.createElement(html)
+    }
+    function createSpan(textContent) {
+        let span = box('span');
+        span.textContent = textContent;
+        span.className = 'text';
+        return span;
+    }
+    function createButton(id) {
+        let button = box('button');
+        button.textContent = '编辑';
+        button.id = id;
+        button.onclick = function (e) {
+            //target就是点击的当前元素
+            let button2 = e.target;
+            let img2 = button2.previousSibling;
+            let key = button2.id;
+            let x = prompt('请设置当前网址');
+            hash[key] = x ;
+            img2.src = 'http://'+x+'/favicon.ico';
+            img2.onerror = function (logo) {
+                logo.target.src = 'img/logo.png'
             };
-            div1.appendChild(kbdDemo);
-            kbdDemo.appendChild(buttonDemo);
-            index2 = index2+1;
+            console.log(hash);
+            localStorage.setItem('wangzhi',JSON.stringify(hash))
+        };
+        return button
+    }
+    function createImg(domain) {
+        let img = box('img');
+        if (domain){
+            img.src = 'http://'+domain+'/favicon.ico'
+        } else {
+            img.src = 'img/logo.png'
         }
-        index = index+1;
+        //无法加载icon图片替换默认图片
+        img.onerror = function (err) {
+            err.target.src = 'img/logo.png'
+        };
+        return img
     }
-    //监听键盘事件
-    document.onkeypress = function (d) {
-        keys = d.key;
-        website = hash[keys];
-        window.open('https://'+website,'_blank');//_blank新开窗口打开
-        // location.href = 'http://'+website;//模拟在地址栏中输入，在当前窗口打开
+
+    function init() {
+        let key = {
+            0:{0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p',length:'10'},
+            1:{0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l',length:'9'},
+            2:{0:'z',1:'x',2:'c',3:'v',4:'b',5:'n',6:'m',length:'7'},
+            'length': 3
+        };
+        let hash = {
+            'q': 'qq.com',
+            'w': 'weibo.com',
+            'e': 'ele.me',
+            'r': 'renren.com',
+            't': 'tianya.com',
+            'y': 'youtu.com',
+            'u': 'uc.com',
+            'i': 'iqiyi.com',
+            'p': undefined,
+            'a': 'acfun.tv',
+            's': 'sohu.com',
+            'z': 'zhihu.com',
+            'm': 'www.mcdonalds.com.cn'
+        };
+        //取localStorage中的wangzhi对应的hash
+        let wangzhi = getFromLocalStorage('wangzhi');
+        if (wangzhi){
+            hash = wangzhi
+        }
+        return {
+            key:key,
+            hash:hash
+        }
     }
+
+    function generateKeyboard(key,hash) {
+        //遍历key，产生kbd标签
+        for (let index=0;index<key['length'];index++){
+            let div = box('div');
+            div.className = 'row';
+            main.appendChild(div);
+
+            let row = key[index];
+            for (let index2=0;index2<row['length'];index2++){
+                let span = createSpan(row[index2]);
+                let button = createButton(row[index2]);
+                let img = createImg(hash[row[index2]]);
+                let kbd = box('kbd');
+                kbd.className = 'key';
+
+                kbd.appendChild(span);
+                kbd.appendChild(img);
+                kbd.appendChild(button);
+
+                div.appendChild(kbd);
+            }
+        }
+    }
+    function listenToUser(hash) {
+        document.onkeypress = function (q) {
+            let keys = q.key;
+            let website = hash[keys];
+            console.log(website);
+            window.open('http://'+website,'_blank')
+        }
+    }
+
 
 </script>
 </html>
