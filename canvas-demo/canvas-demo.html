@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画板</title>
+    <script src="//at.alicdn.com/t/font_1079500_ibhr9p052qn.js"></script>
+    <style type="text/css">
+        .icon {
+            width: 1em; height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+    <style>
+        *{margin:0;padding: 0;}
+        ul,ol{list-style: none;}
+        #canvas{
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #C5C5C5;
+            display: block;
+            overflow: hidden;
+        }
+        .actions{
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .actions> svg{
+            width: 1.5rem;
+            height: 1.5rem;
+            margin: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+        .actions svg.active{
+            fill: orangered;
+            transform: scale(1.4);
+        }
+        .colors{
+            position: fixed;
+            top: 4rem;
+            left: 0.5rem;
+        }
+        .colors>li{
+            margin: 1rem 0;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0px 0px 3px black;
+
+        }
+        .black{background: black}
+        .red{background: red}
+        .orange{background: orange}
+        .green{background: green}
+        .blue{background: blueviolet}
+        .cursor1{cursor: url('ico/black.ico') 8 20,auto;}
+        .cursor2{cursor: url('ico/red.ico') 8 20,auto;}
+        .cursor3{cursor: url('ico/orange.ico') 8 20,auto;}
+        .cursor4{cursor: url('ico/green.ico') 8 20,auto;}
+        .cursor5{cursor: url('ico/blue.ico') 8 20,auto;}
+        .xiangpica{cursor: url('ico/xiangpica.ico') 8 20,auto;}
+    </style>
+</head>
+<body>
+<canvas id="canvas" class="cursor1" width="500" height="500"></canvas>
+<div id="actions" class="actions">
+    <svg id="brush" class="icon active">
+        <use xlink:href="#icon-pencil"></use>
+    </svg>
+    <svg id="eraser" class="icon">
+        <use xlink:href="#icon-xiangpica2"></use>
+    </svg>
+    <svg id="save" class="icon">
+        <use xlink:href="#icon-xiazai"></use>
+    </svg>
+    <svg id="clear" class="icon">
+        <use xlink:href="#icon-delete"></use>
+    </svg>
+</div>
+<ol class="colors">
+    <li id="black" class="black"></li>
+    <li id="red" class="red"></li>
+    <li id="orange" class="orange"></li>
+    <li id="green" class="green"></li>
+    <li id="blue" class="blue"></li>
+</ol>
+
+<script src="canvas-demo.js"></script>
+</body>
+</html>
