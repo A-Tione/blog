@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sku多选列表</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="sku-demo.css">
+</head>
+<body>
+<div class="sku">
+    <div class="specification">
+        <xblock>规格信息</xblock>
+        <!--1、sku选择按钮-->
+        <div class="skuBox">
+            <p class="left">
+                <a class="">上移</a>
+                <a class="">下移</a>
+                <a class="">删除</a>
+            </p>
+            <button id="add" class="add">添加规格</button>
+        </div>
+        <!--2、sku规格信息-->
+        <div class="table">
+            <div class="r_border">
+                <input type="checkbox" class="allSelect">
+            </div>
+            <p class="p1">*规格名称</p>
+            <p class="p1">*规格选项</p>
+        </div>
+        <ul class="parameterList"></ul>
+    </div>
+    <!--3、sku参数项-->
+    <div id="parameter"></div>
+    <!--4、确定提交-->
+    <button class="sure">确定</button>
+</div>
+
+
+<script>
+    $('#add').on('click',function(){
+        addFunc([{name:" ",childList:[{name:" "}]}])
+    });
+</script>
+</body>
+</html>

@@ -8,3 +8,43 @@
 <h1>我的用户名叫heyang 不再是原来的字母哥了</h1>
 </body>
 </html>
+
+
+GET 请求
+
+GET / HTTP/1.1
+Host: baidu.com
+Accept: text/html
+
+
+响应
+
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 1000
+
+<!DOCTYPE>
+<html>......</html>
+
+
+POST 请求
+
+POST /login?q=1 HTTP/1.1
+Host: baidu.com
+Accpet: text/html
+Content-Type: applocation/x-www-form-urlencoded
+Content-Length: 100
+
+username=ati&password=123123
+
+响应
+
+HTTP/1.1 403 Forbidden
+Content-Type: application/md-word
+Content-Length:100
+
+word格式
+HTTP/1.1 200 OK
+http/1.1 200 OK
+
+float+ clearfix

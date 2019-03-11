@@ -1,0 +1,50 @@
+p{
+    margin: 0;
+}
+
+/*1、sku选择按钮*/
+.skuBox{
+    margin: 20px 0 ;
+}
+.left>a{
+    border: 1px solid red;
+    cursor: pointer;
+}
+.left{
+    display: inline-block;
+}
+.add{
+    float: right;
+}
+
+
+/*2、sku规格信息*/
+.table{
+    display: flex;
+    height: 30px;
+    width: 100%;
+    margin: 20px 0;
+    border:1px solid red;
+}
+.r_border{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    border:1px solid red;
+}
+.p1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    border:1px solid red;
+}
+
+
+/*4、确定提交*/
+.sure{
+    position: fixed;
+    bottom: 5%;
+    left: 48%;
+}
