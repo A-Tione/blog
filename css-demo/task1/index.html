@@ -7,26 +7,40 @@
 <style>
     *{margin: 0;padding: 0;}
     body{
+        margin: 2.5vw;
+    }
+    .row{
         display: flex;
-        flex-flow: wrap;
+        justify-content: space-between;
     }
     .box{
         width: 30vw;
         height: 30vw;
-        border-radius: 5vw;
-        margin: 1.5vw;
+        border-radius: 4vw;
+        margin-bottom: 2.5vw;
         background: orange;
+    }
+    .boxMax{
+        margin-left: 2.5vw;
+        margin-right: 2.5vw;
     }
 </style>
 <body>
-<div class="box"></div>
-<div class="box"></div>
-<div class="box"></div>
-<div class="box"></div>
-<div class="box"></div>
-<div class="box"></div>
-<div class="box"></div>
-<div class="box"></div>
-<div class="box"></div>
+<div class="row">
+    <div class="box"></div>
+    <div class="box boxMax"></div>
+    <div class="box"></div>
+</div>
+<div class="row">
+    <div class="box"></div>
+    <div class="box boxMax"></div>
+    <div class="box"></div>
+</div>
+<div class="row">
+    <div class="box"></div>
+    <div class="box boxMax"></div>
+    <div class="box"></div>
+</div>
+
 </body>
 </html>
