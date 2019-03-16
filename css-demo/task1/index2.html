@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格</title>
+</head>
+<style>
+    *{margin: 0;padding: 0;}
+    body{
+        margin-top: 2.5vw;
+        margin-left: 2.5vw;
+    }
+    .clearfix::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .box{
+        float: left;
+        width: 30vw;
+        height: 30vw;
+        border-radius: 4vw;
+        margin-bottom: 2.5vw;
+        background: orange;
+    }
+    .boxMax{
+        margin-left: 2.5vw;
+        margin-right: 2.5vw;
+    }
+</style>
+<body>
+<div class="clearfix">
+    <div class="box"></div>
+    <div class="box boxMax"></div>
+    <div class="box"></div>
+</div>
+<div class="clearfix">
+    <div class="box"></div>
+    <div class="box boxMax"></div>
+    <div class="box"></div>
+</div>
+<div class="clearfix">
+    <div class="box"></div>
+    <div class="box boxMax"></div>
+    <div class="box"></div>
+</div>
+
+</body>
+</html>
