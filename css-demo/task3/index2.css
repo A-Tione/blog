@@ -1,7 +1,9 @@
+html{
+    font-size:125%;
+}
 body{
     color: white;
     background-color:#68cdd5;
-    font-size:125%;
 }
 .icon1{
     margin: 1em;
