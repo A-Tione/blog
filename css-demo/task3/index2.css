@@ -1,0 +1,49 @@
+body{
+    color: white;
+    background-color:#68cdd5;
+    font-size:125%;
+}
+.icon1{
+    margin: 1em;
+    padding: 0em;
+}
+.icon1 img{height: 2em;
+}
+.logo{
+    margin: 4% 4% 4% 4%;
+    padding:  2% 14% 2% 14%;
+}
+.logo img{
+    margin: auto;
+    display: block;
+    height: 3.5em;
+    width: 9em;
+}
+.logo p{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+.hhh{
+    margin: 20% 20%;
+    padding: 4em;
+}
+.icon2{
+    margin: 2em 1em 2em 10%;
+    float: left;
+}
+.icon2 img{height: 2em;margin: auto;display: block;}
+.icon2 p{
+    position:relative;
+    bottom: 0.5em;
+}
+.icon3{
+    margin: 2em 10% 2em 1em;
+    float: right;
+}
+.icon3 img{height: 2em;margin: auto;display: block;}
+.icon3 p {
+    position: relative;
+    display: flex;
+    bottom: 0.5em;
+}
