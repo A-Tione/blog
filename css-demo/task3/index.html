@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魔镜</title>
+</head>
+<body>
+<img class="icon" src="img/icon1.png" alt="">
+<img class="logo" src="img/logo.png" alt="">
+<p class="text">葡萄藤轻游戏专注于桌游领域，提供在线杀人游戏，捉鬼，炸狼堡等多种聚会游戏，以下线下聚会桌游道具。</p>
+<div class="content">
+    <div>
+        <img src="img/icon2.png" alt="">
+        <p>123456</p>
+    </div>
+    <div>
+        <img src="img/icon3.png" alt="">
+        <p>BJPTTeng</p>
+    </div>
+</div>
+</body>
+<script>
+    //获取html根元素
+    const oHtml = document.getElementsByTagName('html')[0];
+    //获取设备视口宽度
+    const width = oHtml.clientWidth;
+    //换算html元素font-size的值
+    oHtml.style.fontSize = 10 * (width / 750) + "px";
+</script>
+<style>
+    *{margin: 0;padding: 0}
+    body{
+        display: flex;
+        flex-direction: column;
+        background: #68cdd5;
+        color: #FFFFFF;
+    }
+    .icon{
+        width: 6.6rem;
+        height: 6.6rem;
+        margin: 2.4rem 0 0 3.8rem;
+    }
+    .logo{
+        width: 21.4rem;
+        height: 8.4rem;
+        margin: 5rem auto 14rem;
+    }
+    .text{
+        width: 52rem;
+        margin: auto;
+        font-size: 3.4rem;
+        line-height: 6rem;
+        font-weight: 300;
+    }
+    .content{
+        display: flex;
+        justify-content: space-between;
+        margin: 20.6rem auto;
+        width: 48rem;
+    }
+    .content>div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .content>div>img{
+        width: 10rem;
+        height: 10rem;
+        margin-bottom: 1.5rem;
+    }
+    .content>div>p{
+        font-size: 2.4rem;
+    }
+</style>
+</html>
