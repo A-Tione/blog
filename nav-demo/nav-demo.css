@@ -1,279 +1,121 @@
-body{
-    margin: 0;
-    background: #efefef;
-    color: black;
+body { background: #efefef; margin: 0; }
+a { color: inherit; text-decoration: none; }
+* { margin: 0; padding: 0; }
+hr { height: 0; border: none; border-top: 1px solid #dedede; }
+ul, ol { list-style: none; }
+h1,h2,h3,h4,h5,h6{ font-weight: normal; }
+.clearfix::after { content: ''; display: block; clear: both; }
+
+.topNavBar { padding: 20px 0; position: fixed; top: 0; left: 0; width: 100%;
+    transition: all 0.5s; color: #b7b7b7;
 }
-a{text-decoration: none;}
-ol{padding: 0;}
-li{
-    list-style: none;
+.topNavBar.sticky{background: white;padding: 10px 0; z-index: 1;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);color: #3d4451;
 }
-/*头部*/
-.header{
-    position: fixed;
-    padding: 20px 16px;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 100;
-}
-.clearfix::after{
+.topNavBar-inner { padding: 0 16px; }
+.topNavBar nav { padding-top: 5px; }
+.topNavBar nav > ul { list-style: none; margin: 0; padding: 0; }
+.topNavBar nav > ul > li { float: left; margin-left: 17px; margin-right: 17px; position: relative;}
+.topNavBar nav > ul > li > a { font-size: 12px; color: inherit; font-weight: bold; border-top: 3px solid transparent; border-bottom: 3px solid transparent;
+    padding-top: 5px; padding-bottom: 5px; display: block; position: relative;}
+.topNavBar nav > ul > li.active > a::after {
     content: '';
     display: block;
-    clear: both;
-}
-.header .logo{
-    float: left;
-    font-family: 'Arial Black';
-    font-size: 24px;
-    padding-top: 3px;
-}
-.header .logo .rs{
-    margin-right: 8px;
-    color: #e6686a;
-}
-.header .logo .card{
-    color: #9a9da2;
-}
-.header .nav{
-    float: right;
-}
-.nav>ul{
-    padding: 0;
-    margin: 0;
-    font-size: 12px;
-}
-.nav>ul>li{
-    float: left;
-    display: block;
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    margin: 7px 17px 0;
-    padding: 4px 0 7px;
-    transition: all 0.3s;
-}
-.nav>ul>li:hover{
-    border-bottom: 3px solid #e06567;
-    transform:rotate(360deg);
-}
-.nav>ul>li>a{
-    color: #b7b7b7;
-    font-weight: 900;
-}
-
-.banner{
-    background-image: url("./img/banner-img.jpg");
-    width: 100%;
-    height: 500px;
-    background-size: cover;
-    background-position: center center;
-}
-.banner>.mask{
-    width: 100%;
-    height: 500px;
-    background-color: rgba(0,0,0,0.6);
-}
-
-/*内容*/
-main{
-    margin-top: -300px;
-}
-main>.card{
-    background-color: white;
-    max-width: 930px;
-    margin: auto;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-}
-main>.card>.pictureAndText{
-    padding: 50px;
-    display: flex;
-}
-main>.card>.pictureAndText>.text{
-    margin-left: 70px;
-    width: 100%;
-}
-main>.card .welcome{
-    position: relative;
-    display: inline-block;
-    padding: 4px 16px;
-    background-color: #e6686a;
-    color: white;
-}
-main>.card .welcome::before{
-    content: '';
     position: absolute;
-    width: 0px;
-    border: 10px solid transparent;
-    border-left-color: #e6686a;
-    top: 18px;
-    left: 5px
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e06567;
+    height: 3px;
+    animation: menuSlide .3s;
 }
-main>.card h1{
-    font-weight: normal;
-    margin: 18px 0 0;
+@keyframes menuSlide{
+    0%{ width: 0; }
+    100%{ width: 100%; }
 }
-main>.card p{
-    margin: 0;
-}
-main>.card dl dt,
-main>.card dl dd{
-    float: left;
-    padding: 5px 0;
-}
-main>.card dl dt{
-    width: 30%;
-    font-weight: 900;
-}
-main>.card dl dd{
-    width: 70%;
-    color: #9da0a7;
-    margin: 0;
-}
-main>.card hr{
-    margin: 20px 0;
-}
-hr{
-    height: 0;
-    border: none;
-    border-top: 1px solid #dedede;
-}
-main> .card .media{
-    background-color: #e6686a;
-    text-align: center;
-}
-main> .card .media>a{
-    display: inline-block;
-    width: 40px;
-    padding: 5px 0;
-    border-radius: 50%;
-    margin: 16px;
-}
-main> .card .media>a:hover{
-    background: #cf5d5f;
-}
-main>.card svg{
-    width: 30px;
-    height: 30px;
-    fill: white;
-    vertical-align: top;
-}
-.down-wrapper{
-    text-align: center;
-}
-.down-wrapper a{
-    display: inline-block;
-    padding: 20px 55px;
-    border: 1px solid #cdcfd1;
-    border-radius: 4px;
-    background: #efefef;
+.topNavBar .submenu{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
     color: #3d4451;
-    font-weight: 900;
-    margin: 16px 0;
-    transition: box-shadow 0.2s;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
-.down-wrapper a:hover{
+.topNavBar li.active> .submenu{
+    display: block;
+    animation: submenuSlide .3s;
+}
+@keyframes submenuSlide{
+    0%{
+        margin-right: 100%;
+    }
+    100%{
+        margin-right: 0%;
+    }
+}
+.topNavBar .submenu > li{
+    white-space: nowrap;
+    padding: 5px 10px;
+}
+
+.topNavBar .logo { font-size: 24px; font-family: 'Arial Black'; padding-top: 3px; padding-bottom: 4px; }
+.topNavBar .logo .rs { margin-right: 4px; color: #e6686a; }
+.topNavBar .logo .card { color: #9a9da2; }
+.banner { height: 515px; background-image: url(img/banner-img.jpg); background-position: center center; background-size: cover; }
+.banner .mask { height: 515px; background-color: rgba(0, 0, 0, 0.8); }
+
+.userCard { max-width: 940px; margin-left: auto; margin-right: auto; background-color: #ffffff; box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5); }
+.userCard .welcome { background: #e6686a; color: white; display: inline-block; padding: 4px 16px;
+    line-height: 22px; position: relative; margin-bottom: 10px; }
+.userCard .welcome .triangle { display: block; border: 10px solid transparent; width: 0px; border-left-color: #e6686a;
+    border-top-width: 0px; position: absolute; left: 4px; top: 100%; }
+.userCard .picture { float: left; }
+.userCard .text { float: left; margin-left: 65px; width: 470px; }
+.userCard .text h1 { margin-top: 18px; }
+.userCard .text hr { margin: 20px 0; }
+.userCard .pictureAndText { padding: 50px; }
+.userCard dl dt, .userCard dl dd { float: left; padding: 5px 0; }
+.userCard dl dt { width: 30%; font-weight: bold; }
+.userCard dl dd { width: 70%; color: #9da0a7; }
+
+.userCard > footer.media { background: #e6686a; text-align: center; }
+.userCard > footer.media > a { display: inline-block; width: 40px; line-height: 30px; padding: 5px 0;
+    border-radius: 50%; margin: 16px; }
+.userCard > footer.media > a:hover { background: #cf5d5f; }
+.userCard svg { width: 30px; height: 30px; fill: white; vertical-align: top; }
+body > main { margin-top: -340px; }
+body > main .downloadResume-wrapper { text-align: center; }
+body > main .downloadResume { font-size: 14px; line-height: 16px; padding: 21px 55px; border: 1px solid #cdcfd1; background: #efefef;
+    display: inline-block; border-radius: 2px; color: #3d4451; font-weight: bold; margin: 32px 0; transition: box-shadow 0.2s; }
+
+body > main .downloadResume:hover {
     box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.2);
 }
-.text-two{
-    font-family: cursive;
-    margin: auto;
-    text-align: center;
-    line-height: 1.8;
-    font-size: 20px;
-}
-section.skill{
-    max-width: 930px;
-    margin: auto;
 
-}
-section h2{
-    text-align: center;
-    color: #3d4451;
-    font-size: 34px;
-    line-height: 1.2;
-    font-weight: 900;
-}
-.skill ol{
-    background: white;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
-    padding: 42px 50px 10px;
-    margin-top: 30px;
-}
-.skill ol li{
-    float: left;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 48%;
-}
-.skill ol li:nth-child(even){
-    float: right;
-}
-.skill h3{
-    font-size: 14px;
-    line-height: 1.1;
-    padding-right: 40px;
-    font-weight: normal;
-}
-.skill .progressBar{
-    height: 5px;
-    background: #FAE1E1;
-    border-radius: 3px;
-    margin-bottom: 40px;
-}
-.skill .progress{
-    width: 50%;
-    height: 100%;
-    background: #E6686A;
-    border-radius: 3px;
-}
-.portfolio{
-    text-align: center;
-    max-width: 930px;
-    margin:60px auto 200px;
-}
-.portfolio>nav{
-    display: inline-block;
-    vertical-align: top;
-}
-.portfolio>nav li{
-    float: left;
-    margin-left: 40px;
-    cursor: pointer;
-}
-.portfolio>nav li:first-child{
-    margin: 0;
-}
-.portfolio>nav .bar{
-    height: 5px;
-    background: white;
-    margin-top: 5px;
-    margin-bottom: 28px;
-    border-radius: 2px;
-}
-.portfolio > nav .bar-inner{
-    height: 100%;
-    background: #E6686A;
-    border-radius: 2px;
-    transition: all 0.3s;
-}
-.portfolio > nav .bar.state-1 .bar-inner{
-    margin-left: 0;
-    width: 40px;
-}
-.portfolio > nav .bar.state-2 .bar-inner{
-    margin-left: 63px;
-    width: 50px;
-}
-.portfolio > nav .bar.state-3 .bar-inner{
-    margin-left: 140px;
-    width: 95px;
-}
-.jobs{
-    position: relative;
-}
-.big,.small{
-    position: absolute;
-}
+.selfIntroduction { max-width: 940px; margin-left: auto; margin-right: auto; text-align: center; font-family: kai; line-height: 1.8; font-size: 18px; }
+
+section.skills,
+section.portfolio{ max-width: 940px; margin-left: auto; margin-right: auto; margin-top: 60px; }
+section.skills > h2 ,
+section.portfolio > h2 { text-align: center; color: #3d4451; font-size: 34px; line-height: 1.2; font-weight: 600; }
+section.skills h3 { font-size: 14px; line-height: 1.1; padding-right: 40px; }
+section.skills > ol { background: white; box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5); padding: 42px 50px 10px; margin-top: 30px; }
+section.skills > ol > li { float: left; width: 48%; box-sizing: border-box; }
+section.skills > ol > li:nth-child(even) { float: right; }
+section.skills .progressBar { height: 5px; background: #FAE1E1; border-radius: 2px; margin: 4px 0 40px; }
+section.skills .progressBar > .progress { height: 100%; background: #E6686A; width: 70%; border-radius: 2px; }
+
+section.portfolio { text-align: center; margin-bottom: 100px; }
+section.portfolio > nav{ text-align: center; }
+section.portfolio > nav > ol{ margin: 0 auto; display: inline-block; vertical-align: top; }
+section.portfolio > nav > ol > li{ float: left; margin-left: 40px; cursor: pointer; }
+section.portfolio > nav > ol > li:first-child{ margin-left: 0; }
+section.portfolio > nav{ display: inline-block; vertical-align: top; margin-top: 32px; }
+section.portfolio > nav .bar{ height: 5px; background: white; margin-top: 5px; margin-bottom: 28px; border-radius: 2px; }
+section.portfolio > nav .bar-inner{ height: 100%; background: #E6686A; border-radius: 2px; transition: all 0.3s; }
+section.portfolio > nav .bar.state-1 .bar-inner{ margin-left: 0; width: 50px; }
+section.portfolio > nav .bar.state-2 .bar-inner{ margin-left: 65px; width: 50px; }
+section.portfolio > nav .bar.state-3 .bar-inner{ margin-left: 140px; width: 96px; }
+section.portfolio .works{ position: relative; }
+section.portfolio .works > .big, section.portfolio .works > .small { position: absolute; }

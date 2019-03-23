@@ -1,136 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-    <meta charset="UTF-8">
-    <title>导航条</title>
-    <link rel="stylesheet" href="nav-demo.css">
-    <script src="//at.alicdn.com/t/font_1049323_t26dsxhg3l.js"></script>
+    <title>阿嚏的个人简历</title>
+    <script src="//at.alicdn.com/t/font_451045_32zbfqegtq3t0529.js"></script>
     <style type="text/css">
-        .icon {
-            width: 1em; height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
+        .loading{ width: 200px; height: 200px; position: relative; }
+        .loading::before,.loading::after{ content: ''; position: absolute; width: 0px; height: 0px; background: black; border-radius: 50%; top: 0; left: 0; bottom: 0; right: 0; margin: auto; animation: s 1.5s linear infinite; }
+        .loading::after{ animation-delay: 0.75s; }
+        @keyframes s{
+            0%{ width: 0px; height: 0px; opacity: 1; }
+            100%{ width: 100px; height: 100px; opacity: 0; }
         }
+        .icon { width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; overflow: hidden; }
+        .site-welcome{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #888; z-index: 1; justify-content: center; align-items: center; }
+        .site-welcome.active{ display: flex; }
     </style>
+    <link rel="stylesheet" href="./nav-demo.css">
 </head>
+
 <body>
-<div class="header clearfix" >
-    <a href="#" class="logo" alt="logo">
-        <span class="rs">RS</span><span class="card">card</span>
-    </a>
-    <nav class="nav">
-        <ul>
-            <li><a href="#">关于</a></li>
-            <li><a href="#">技能</a></li>
-            <li><a href="#">作品</a></li>
-            <li><a href="#">博客</a></li>
-            <li><a href="#">日历</a></li>
-            <li><a href="#">联系方式</a></li>
-            <li><a href="#">其他</a></li>
-        </ul>
-    </nav>
+<div id="siteWelcome" class="site-welcome active">
+    <div class="loading"></div>
+</div>
+<div id="topNavBar" class="topNavBar">
+    <div class="topNavBar-inner clearfix">
+        <a class="logo" href="#" alt="logo" style="float: left;">
+            <span class="rs">RS</span>
+            <span class="card">card</span>
+        </a>
+        <nav class="menu" style="float: right;">
+            <ul class="clearfix">
+                <li>
+                    <a href="#siteAbout">关于</a>
+                </li>
+                <li>
+                    <a href="#siteSkills">技能</a>
+                </li>
+                <li>
+                    <a href="#siteWorks">作品</a>
+                    <ul class="submenu">
+                        <li>作品1</li>
+                        <li>作品2</li>
+                        <li>作品3</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">博客</a>
+                    <ul class="submenu">
+                        <li>博客1</li>
+                        <li>博客2</li>
+                        <li>博客3</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">日历</a>
+                </li>
+                <li>
+                    <a href="#">联系方式</a>
+                </li>
+                <li>
+                    <a href="#">其他</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
 <div class="banner">
     <div class="mask"></div>
 </div>
 <main>
-    <div class="card">
-        <div class="pictureAndText">
+    <div id="siteAbout" class="userCard">
+        <div class="pictureAndText clearfix">
             <div class="picture">
-                <img src="./img/head.jpg" alt="头像">
+                <img src="img/head.jpg" width=299 height=347 alt="头像">
             </div>
             <div class="text">
-                <div class="profile">
-                    <span class="welcome">Hello</span>
-                    <h1>何阳</h1>
-                    <p>前端开发工程师</p>
-                    <hr>
-                    <dl>
-                        <dt>年龄</dt>
-                        <dd>26</dd>
-                        <dt>所在城市</dt>
-                        <dd>广州</dd>
-                        <dt>邮箱</dt>
-                        <dd>heyanggo@gmail.com</dd>
-                        <dt>手机</dt>
-                        <dd>13973294543</dd>
-                    </dl>
-                </div>
+          <span class="welcome">Hello
+            <span class="triangle"></span>
+          </span>
+                <h1>何阳</h1>
+                <p>前端开发工程师</p>
+                <hr>
+                <dl>
+                    <dt>年龄</dt>
+                    <dd>26</dd>
+                    <dt>所在城市</dt>
+                    <dd>广州</dd>
+                    <dt>邮箱</dt>
+                    <dd>heyanggo@gmail.com</dd>
+                    <dt>手机</dt>
+                    <dd>1397329453</dd>
+                </dl>
             </div>
         </div>
         <footer class="media">
-            <a href="#">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-tubiaozhizuo-"></use>
-                </svg>
-            </a>
-            <a href="#">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-zhihu"></use>
-                </svg>
-            </a>
             <a href="#">
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icon-github"></use>
                 </svg>
             </a>
             <a href="#">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-qq"></use>
-            </svg>
-        </a>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-Ankerwebicon-"></use>
+                </svg>
+            </a>
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            </a>
         </footer>
     </div>
-    <p class="down-wrapper"><a class="down" href="./阿嚏的个人简历.PDF" download>下载 PDF 简历</a></p>
-    <p class="text-two">
-        何阳， 前端工程师。<br>
-        技能：前端开发，vue，angularJS
+
+    <p class="downloadResume-wrapper">
+        <a class="downloadResume" href="阿嚏的个人简历.PDF" target="_blank" download>下载 PDF 简历</a>
+    </p>
+
+    <p class="selfIntroduction">
+        何阳， 前端工作者。
+        <br> 技能：前端开发，Vue，React
     </p>
 
 </main>
-<section class="skill">
+<section id="siteSkills" class="skills">
     <h2>技能</h2>
     <ol class="clearfix">
         <li>
-            <h3>HTML 5 &amp; CSS 3</h3>
+            <h3>
+                HTML 5 &amp; CSS 3
+            </h3>
             <div class="progressBar">
-                <div class="progress" style="width: 40%;"></div>
+                <div class="progress" style="width: 10%;"></div>
             </div>
         </li>
         <li>
-            <h3>JavaScript</h3>
+            <h3>
+                JavaScript
+            </h3>
             <div class="progressBar">
-                <div class="progress" style="width: 50%;"></div>
+                <div class="progress" style="width: 20%"></div>
             </div>
         </li>
         <li>
-            <h3>jQuery</h3>
+            <h3>
+                jQuery
+            </h3>
             <div class="progressBar">
-                <div class="progress" style="width: 60%;"></div>
+                <div class="progress" style="width: 30%"></div>
             </div>
         </li>
         <li>
-            <h3>Vue</h3>
+            <h3>
+                Vue.js
+            </h3>
             <div class="progressBar">
-                <div class="progress" style="width: 70%;"></div>
+                <div class="progress" style="width: 40%"></div>
             </div>
         </li>
         <li>
-            <h3>AngualrJS</h3>
+            <h3>
+                Http.js
+            </h3>
             <div class="progressBar">
-                <div class="progress" style="width: 80%;"></div>
+                <div class="progress"  style="width: 50%"></div>
             </div>
         </li>
         <li>
-            <h3>HTTP</h3>
+            <h3>
+                Angular.js
+            </h3>
             <div class="progressBar">
-                <div class="progress" style="width: 90%;"></div>
+                <div class="progress"  style="width: 60%"></div>
             </div>
         </li>
     </ol>
 </section>
-<section class="portfolio">
+<section class="portfolio" id="siteWorks">
     <h2>作品集</h2>
     <nav>
         <ol class="clearfix">
@@ -142,30 +189,64 @@
             <div class="bar-inner"></div>
         </div>
     </nav>
+    <script>
+        portfolio1.onclick= function(){
+            portfolioBar.className = 'bar state-1'
+        }
+        portfolio2.onclick= function(){
+            portfolioBar.className = 'bar state-2'
+        }
+        portfolio3.onclick= function(){
+            portfolioBar.className = 'bar state-3'
+        }
+    </script>
 
-    <div class="jobs" style="height: 597px;">
-        <div class="big" style="top:0;left: 0;">
-            <img src="./img/1.jpg">
+
+    <div class="works" style="height: 597px;">
+        <div class="big" style="top: 0; left: 0;">
+            <img src="img/1.jpg" alt="作品1">
         </div>
-        <div class="small" style="top:0;left: 635px;">
-            <img src="./img/2.jpg">
+        <div class="small" style="top: 0; left: 645px;">
+            <img src="img/2.jpg" alt="作品2">
         </div>
-        <div class="small" style="top:312px;left: 635px;">
-            <img src="./img/3.jpg">
+        <div class="small" style="top: 312px; left: 645px;">
+            <img src="img/3.jpg" alt="作品3">
         </div>
     </div>
 
 </section>
-</body>
 <script>
-    portfolio1.onclick= function(){
-        portfolioBar.className = 'bar state-1'
-    };
-    portfolio2.onclick= function(){
-        portfolioBar.className = 'bar state-2'
-    };
-    portfolio3.onclick= function(){
-        portfolioBar.className = 'bar state-3'
-    };
+    setTimeout(function(){
+        siteWelcome.classList.remove('active')
+    },1500)
+    window.onscroll = function(xxxxx){
+        if(window.scrollY > 0){
+            topNavBar.classList.add('sticky')
+        }else{
+            topNavBar.classList.remove('sticky')
+        }
+    }
+    let liTags = document.querySelectorAll('nav.menu > ul > li')
+    for(let i=0; i<liTags.length; i++){
+        liTags[i].onmouseenter = function(x){
+            x.currentTarget.classList.add('active')
+        }
+        liTags[i].onmouseleave = function(x){
+            x.currentTarget.classList.remove('active')
+        }
+    }
+    let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+    for(let i=0; i<aTags.length; i++){
+        aTags[i].onclick = function(x){
+            x.preventDefault()
+            let a = x.currentTarget
+            let href = a.getAttribute('href') //'#siteAbout'
+            let element = document.querySelector(href)
+            let top = element.offsetTop
+            window.scrollTo(0, top - 80)
+        }
+    }
 </script>
+</body>
+
 </html>
