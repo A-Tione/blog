@@ -6,6 +6,24 @@ ul, ol { list-style: none; }
 h1,h2,h3,h4,h5,h6{ font-weight: normal; }
 .clearfix::after { content: ''; display: block; clear: both; }
 
+[data-x].active{
+    outline: 10px solid red;
+}
+[data-x].offset{
+    transform: translateY(100px);
+}
+[data-x]{
+    transform: translateY(0);
+    transition: all 0.5s;
+}
+@keyframes slideUp{
+    0%{
+        transform: translateY(-30px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
 .topNavBar { padding: 20px 0; position: fixed; top: 0; left: 0; width: 100%;
     transition: all 0.5s; color: #b7b7b7;
 }
@@ -18,7 +36,8 @@ h1,h2,h3,h4,h5,h6{ font-weight: normal; }
 .topNavBar nav > ul > li { float: left; margin-left: 17px; margin-right: 17px; position: relative;}
 .topNavBar nav > ul > li > a { font-size: 12px; color: inherit; font-weight: bold; border-top: 3px solid transparent; border-bottom: 3px solid transparent;
     padding-top: 5px; padding-bottom: 5px; display: block; position: relative;}
-.topNavBar nav > ul > li.active > a::after {
+.topNavBar nav > ul > li.active > a::after,
+.topNavBar nav > ul > li.highlight > a::after {
     content: '';
     display: block;
     position: absolute;
@@ -103,8 +122,13 @@ section.skills h3 { font-size: 14px; line-height: 1.1; padding-right: 40px; }
 section.skills > ol { background: white; box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5); padding: 42px 50px 10px; margin-top: 30px; }
 section.skills > ol > li { float: left; width: 48%; box-sizing: border-box; }
 section.skills > ol > li:nth-child(even) { float: right; }
-section.skills .progressBar { height: 5px; background: #FAE1E1; border-radius: 2px; margin: 4px 0 40px; }
-section.skills .progressBar > .progress { height: 100%; background: #E6686A; width: 70%; border-radius: 2px; }
+section.skills .progressBar { height: 5px; background: #FAE1E1;
+    border-radius: 2px; margin: 4px 0 40px; overflow: hidden; }
+section.skills .progressBar > .progress { height: 100%; background: #E6686A;
+    width: 70%; border-radius: 2px; transform: translateX(0); transition: all 1s; }
+section.skills.offset .progress{
+    transform: translateX(-100%);
+}
 
 section.portfolio { text-align: center; margin-bottom: 100px; }
 section.portfolio > nav{ text-align: center; }

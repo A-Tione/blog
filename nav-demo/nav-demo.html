@@ -71,7 +71,7 @@
     <div class="mask"></div>
 </div>
 <main>
-    <div id="siteAbout" class="userCard">
+    <div data-x id="siteAbout" class="userCard">
         <div class="pictureAndText clearfix">
             <div class="picture">
                 <img src="img/head.jpg" width=299 height=347 alt="头像">
@@ -124,7 +124,7 @@
     </p>
 
 </main>
-<section id="siteSkills" class="skills">
+<section data-x id="siteSkills" class="skills">
     <h2>技能</h2>
     <ol class="clearfix">
         <li>
@@ -177,7 +177,7 @@
         </li>
     </ol>
 </section>
-<section class="portfolio" id="siteWorks">
+<section data-x class="portfolio" id="siteWorks">
     <h2>作品集</h2>
     <nav>
         <ol class="clearfix">
@@ -215,6 +215,8 @@
     </div>
 
 </section>
+<!--tween缓动库-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
 <script>
     setTimeout(function(){
         siteWelcome.classList.remove('active')
@@ -226,6 +228,41 @@
             topNavBar.classList.remove('sticky')
         }
     }
+    // 添加 offset 类
+    let specialTags = document.querySelectorAll('[data-x]')
+    for(let i =0;i<specialTags.length; i++){
+        specialTags[i].classList.add('offset')
+    }
+    findClosest()
+    window.onscroll = function(x){
+        if(window.scrollY > 0){
+            topNavBar.classList.add('sticky')
+        }else{
+            topNavBar.classList.remove('sticky')
+        }
+        findClosest()
+    }
+    function findClosest(){
+        let specialTags = document.querySelectorAll('[data-x]')
+        let minIndex = 0
+        for(let i =1;i<specialTags.length; i++){
+            if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
+                minIndex = i
+            }
+        }
+        setTimeout(function () {
+            specialTags[minIndex].classList.remove('offset')
+        },1500)
+        // minIndex 就是里窗口顶部最近的元素
+        let id = specialTags[minIndex].id
+        let a = document.querySelector('a[href="#'+ id + '"]')
+        let li = a.parentNode
+        let brothersAndMe = li.parentNode.children
+        for(let i=0; i<brothersAndMe.length; i++){
+            brothersAndMe[i].classList.remove('highlight')
+        }
+        li.classList.add('highlight')
+    }
     let liTags = document.querySelectorAll('nav.menu > ul > li')
     for(let i=0; i<liTags.length; i++){
         liTags[i].onmouseenter = function(x){
@@ -236,6 +273,11 @@
         }
     }
     let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+    function animate(time) {
+        requestAnimationFrame(animate);
+        TWEEN.update(time);
+    }
+    requestAnimationFrame(animate);
     for(let i=0; i<aTags.length; i++){
         aTags[i].onclick = function(x){
             x.preventDefault()
@@ -243,7 +285,20 @@
             let href = a.getAttribute('href') //'#siteAbout'
             let element = document.querySelector(href)
             let top = element.offsetTop
-            window.scrollTo(0, top - 80)
+            let currentTop = window.scrollY
+            let targetTop = top - 80
+            let s = targetTop - currentTop // 路程
+            var coords = { y: currentTop}; // 起始位置
+            var t = Math.abs((s/100)*300) // 时间
+            if(t>500){ t = 500 }
+            var tween = new TWEEN.Tween(coords) // 起始位置
+                .to({ y: targetTop}, t) // 结束位置 和 时间
+                .easing(TWEEN.Easing.Cubic.InOut) // 缓动类型
+                .onUpdate(function() {
+                    // coords.y 已经变了
+                    window.scrollTo(0,coords.y) // 如何更新界面
+                })
+                .start(); // 开始缓动
         }
     }
 </script>
