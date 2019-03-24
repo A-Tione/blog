@@ -246,6 +246,7 @@
         let specialTags = document.querySelectorAll('[data-x]')
         let minIndex = 0
         for(let i =1;i<specialTags.length; i++){
+            //当前元素-滚动条长度<顶部最近元素-滚动条长度=  minIndex就为当前元素i    offsetTop相对offsetParent元素（相对定位元素，若无则相对body）顶部的距离。    window.scrollY 浏览器顶部到视口顶部的距离
             if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)){
                 minIndex = i
             }
