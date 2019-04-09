@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button点击效果</title>
+</head>
+<body>
+<button id="b" class="Button">
+    <span class="circle"></span>
+    按钮
+</button>
+<script>
+    b.onclick =function () {
+        b.querySelector('.circle')
+            .classList.add('active')
+    }
+    //监听点击结束
+    b.querySelector('.circle').addEventListener('transitionend',function () {
+        b.querySelector('.circle')
+            .classList.remove('active')
+    })
+</script>
+</body>
+</html>
+
+<style>
+    .Button{
+        box-sizing: border-box;
+        display: inline-block;
+        background: none;
+        height:36px;
+        line-height: 36px;
+        padding: 0 16px;
+        text-decoration: none;/**去除a标签下划线**/
+        font-size: 14px;
+        border: none;/**去除border默认样式**/
+        transition: all 0.3s;
+        position: relative;
+        background: green;
+        overflow: hidden;
+        z-index: 0;
+        cursor: pointer;
+    }
+    .Button:hover{
+        background: #E5E5E5;
+    }
+    .Button:focus{
+        outline: none;/**去除按钮点击focus默认样式**/
+        background: #E5E5E5;/**添加tab时的颜色**/
+    }
+    .Button>.circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 1px solid red;
+        width: 10px;
+        height: 10px;
+        background: red;
+        margin-left: -5px;
+        margin-top: -5px;
+        z-index: -1;
+        transition: transform .3s;
+        border-radius: 50%;
+        pointer-events: none;/*禁止响应用户的所有鼠标事件*/
+        visibility: hidden;/**visibility起始隐藏，display:none不能增加动画**/
+    }
+    .Button>.circle.active{
+        transform: scale(10);/**中心放大**/
+        visibility: visible;/**visibility出现*/
+    }
+
+</style>
