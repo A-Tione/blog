@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>美化图片上传</title>
+</head>
+<body>
+<div class="imagePicker">
+    <img src="http://carrots.ks3-cn-beijing.ksyun.com/task/99b3a801-d0cf-425e-a7c9-0a0d8cd7f78c.png" alt="">
+    <input type="file" name="image">
+    <div class="mask">编辑</div>
+</div>
+</form>
+</body>
+</html>
+
+<style>
+    *{margin: 0;padding: 0}
+    body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .imagePicker{
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #b8b8b8;
+        overflow: hidden;
+        box-shadow: inset 0 0 3px rgba(0,0,0,0.5);
+        position: relative;
+    }
+    .imagePicker img{
+        height: 100%;
+        width: 100%;
+        vertical-align: top;
+    }
+    .imagePicker input[type=file]{
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 1;
+    }
+    .mask{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid red;
+        background: rgba(0,0,0,0.5);
+        color: white;
+    }
+    .imagePicker:hover .mask{
+        display: flex;
+    }
+</style>
