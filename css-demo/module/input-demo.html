@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input美化</title>
+</head>
+<script src="//at.alicdn.com/t/font_1131659_nuf6ozww47.js"></script>
+<style type="text/css">
+    .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+    }
+</style>
+<body>
+<div class="box">
+    <span class="inputBox">
+        <span class="iconBox">
+            <svg class="icon">
+                <use xlink:href="#icon-microphone"></use>
+            </svg>
+            <span class="splitLine"></span>
+            <svg class="icon">
+                <use xlink:href="#icon-camera"></use>
+            </svg>
+        </span>
+        <input id="keywork" type="text" autocomplete="off">
+    </span>
+    <button>百度一下</button>
+    <ul id="suggestion" class="suggestion">
+        <li>选项1</li>
+        <li>选项2</li>
+        <li>选项3</li>
+        <li>选项4</li>
+    </ul>
+</div>
+<script>
+    keywork.oninput = function(e){
+        if(keywork.value){
+            suggestion.classList.add('active')
+        }else{
+            suggestion.classList.remove('active')
+        }
+    }
+</script>
+</body>
+</html>
+<style>
+    * {
+        margin: 0;
+        padding: 0
+    }
+    * {
+        box-sizing: border-box
+    }
+    *::before, *::after {
+        box-sizing: border-box;
+    }
+    ul, ol {
+        list-style: none
+    }
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box {
+        display: flex;
+        position: relative;
+    }
+    .inputBox {
+        position: relative;
+        display: inline-block;
+    }
+    .iconBox {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+    }
+    .inputBox {float: left;}
+    .inputBox + button {float: left;}
+    .inputBox + button {
+        background: #38f;
+        border:none;
+        font-size: 16px;
+        color: white;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+    .inputBox + button:focus{
+        outline: none;
+    }
+    .inputBox + button:hover{
+        box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.2);
+        background: #3781F0;
+    }
+    .inputBox input[type=text] {
+        border: 1px solid #b8b8b8;
+        width: 540px;
+        height: 36px;
+        padding-left: 8px;
+        line-height: 36px;
+        font-size: 15px;
+    }
+    .inputBox input[type=text]:focus {
+        outline: none;
+        border-color: #38f
+    }
+    .inputBox svg.icon{
+        width:20px;
+        height: 20px;
+        fill:#b8b8b8;
+    }
+    .inputBox svg.icon:hover{
+        fill:#38f;
+        cursor: pointer;
+    }
+    .splitLine{
+        width:0;
+        height: 16px;
+        border-left:1px solid;
+        margin: 0 10px;
+        border-color: #b8b8b8;
+    }
+    .suggestion {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+    }
+    .box .active {
+        display: block;
+    }
+
+</style>
