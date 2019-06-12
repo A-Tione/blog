@@ -29,8 +29,8 @@ body{
     z-index: 1;
 }
 .imgBox>img.leave{
-    transform: translateX(-100%);
+    transform: translateX(100%);
 }
 .imgBox>img.enter{
-    transform: translateX(100%);
+    transform: translateX(-100%);
 }
