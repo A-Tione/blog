@@ -1,5 +1,6 @@
 let n;
 init();
+//核心代码
 setInterval(()=>{
     makeLeave(getImg(n)).one('transitionend', (e)=>{
         makeEnter($(e.currentTarget))
@@ -7,6 +8,7 @@ setInterval(()=>{
     makeCurrent(getImg(n+1))
     n += 1
 },3000)
+//end
 
 function init() {
     n = 1;
