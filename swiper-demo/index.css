@@ -1,4 +1,4 @@
-*{padding: 0;margin: 0;}
+*{padding: 0;margin: 0}
 body{
     width: 100vw;
     height: 100vh;
@@ -9,28 +9,26 @@ body{
 }
 .window{
     width: 330px;
-    height: 412px;
-    border: 10px solid #b7b7b7;
-    border-radius: 6px;
+    height: 414px;
+    border: 10px solid #dedede;
     overflow: hidden;
 }
 .imgBox{
     position: relative;
 }
 .imgBox>img{
-    width: 100%;
-    transition: all .3s;
     position: absolute;
     top: 0;
+    transition: all .3s;
 }
-.imgBox>img.current{
+.imgBox>img.center{
     left: 0;
     transform: translateX(0);
     z-index: 1;
 }
-.imgBox>img.leave{
+.imgBox>img.before{
     transform: translateX(100%);
 }
-.imgBox>img.enter{
+.imgBox>img.after{
     transform: translateX(-100%);
 }
