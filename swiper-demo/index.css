@@ -11,6 +11,7 @@ body{
     width: 330px;
     height: 414px;
     border: 10px solid #dedede;
+    border-radius: 6px;
     overflow: hidden;
 }
 .imgBox{

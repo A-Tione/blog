@@ -7,7 +7,7 @@ setInterval(() => {
     })
     centerStatus(thisImg(n + 1))
     n++
-}, 1000)
+}, 3000)
 
 function thisImg(n) {
     return $('.imgBox>img:nth-child(' + x(n) + ')')
