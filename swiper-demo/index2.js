@@ -1,4 +1,4 @@
-let $allButtons = $('.button button')
+let $allButtons = $('.btnBox button')
 let length = $allButtons.length
 let n = 0
 let timer = setTimer()
