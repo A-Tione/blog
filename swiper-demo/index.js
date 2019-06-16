@@ -1,13 +1,28 @@
 let n;
 init();
 
-setInterval(() => {
+let timer = setInterval(() => {
     afterStatus(thisImg(n)).one('transitionend', (e) => {
         beforeStatus($(e.currentTarget))
     })
     centerStatus(thisImg(n + 1))
     n++
 }, 3000)
+
+//visibilitychange 监听是否为当前页面，离开为true，当前为false
+document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden){//document.hidden为true
+        window.clearInterval(timer)//砸掉闹钟
+    }else {
+        timer = setInterval(() => {
+            afterStatus(thisImg(n)).one('transitionend', (e) => {
+                beforeStatus($(e.currentTarget))
+            })
+            centerStatus(thisImg(n + 1))
+            n++
+        }, 3000)
+    }
+})
 
 function thisImg(n) {
     return $('.imgBox>img:nth-child(' + x(n) + ')')
