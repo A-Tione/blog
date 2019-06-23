@@ -24,6 +24,16 @@ h1,h2,h3,h4,h5,h6{ font-weight: normal; }
         transform: translateY(0);
     }
 }
+.loading{ width: 200px; height: 200px; position: relative; }
+.loading::before,.loading::after{ content: ''; position: absolute; width: 0px; height: 0px; background: black; border-radius: 50%; top: 0; left: 0; bottom: 0; right: 0; margin: auto; animation: s 1.5s linear infinite; }
+.loading::after{ animation-delay: 0.75s; }
+@keyframes s{
+    0%{ width: 0px; height: 0px; opacity: 1; }
+    100%{ width: 100px; height: 100px; opacity: 0; }
+}
+.icon { width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; overflow: hidden; }
+.site-welcome{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #888; z-index: 1; justify-content: center; align-items: center; }
+.site-welcome.active{ display: flex; }
 .topNavBar { padding: 20px 0; position: fixed; top: 0; left: 0; width: 100%;
     transition: all 0.5s; color: #b7b7b7;
 }
@@ -131,15 +141,16 @@ section.skills.offset .progress{
 }
 
 section.portfolio { text-align: center; margin-bottom: 100px; }
-section.portfolio > nav{ text-align: center; }
-section.portfolio > nav > ol{ margin: 0 auto; display: inline-block; vertical-align: top; }
-section.portfolio > nav > ol > li{ float: left; margin-left: 40px; cursor: pointer; }
-section.portfolio > nav > ol > li:first-child{ margin-left: 0; }
-section.portfolio > nav{ display: inline-block; vertical-align: top; margin-top: 32px; }
-section.portfolio > nav .bar{ height: 5px; background: white; margin-top: 5px; margin-bottom: 28px; border-radius: 2px; }
-section.portfolio > nav .bar-inner{ height: 100%; background: #E6686A; border-radius: 2px; transition: all 0.3s; }
-section.portfolio > nav .bar.state-1 .bar-inner{ margin-left: 0; width: 50px; }
-section.portfolio > nav .bar.state-2 .bar-inner{ margin-left: 65px; width: 50px; }
-section.portfolio > nav .bar.state-3 .bar-inner{ margin-left: 140px; width: 96px; }
-section.portfolio .works{ position: relative; }
-section.portfolio .works > .big, section.portfolio .works > .small { position: absolute; }
+section.portfolio > h2{margin-bottom: 60px}
+
+section.portfolio .swiper-container { width: 668px; height: 501px; }
+section.portfolio .swiper-button-prev,
+section.portfolio .swiper-button-next{
+    background-color: white;
+    width: 64px;
+    height: 64px;
+    right: 100%;
+    left: auto;
+    border-radius: 50%;
+}
+section.portfolio .swiper-button-next{ left: 100%;right: auto; }
