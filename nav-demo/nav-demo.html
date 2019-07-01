@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <title>阿嚏的个人简历</title>
-    <script src="//at.alicdn.com/t/font_451045_32zbfqegtq3t0529.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.14.0/dist/av-min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css">
     <link rel="stylesheet" href="./nav-demo.css">
 </head>
@@ -150,7 +150,7 @@
                 Http.js
             </h3>
             <div class="progressBar">
-                <div class="progress"  style="width: 50%"></div>
+                <div class="progress" style="width: 50%"></div>
             </div>
         </li>
         <li>
@@ -158,7 +158,7 @@
                 Angular.js
             </h3>
             <div class="progressBar">
-                <div class="progress"  style="width: 60%"></div>
+                <div class="progress" style="width: 60%"></div>
             </div>
         </li>
     </ol>
@@ -184,7 +184,21 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
     </div>
-
+</section>
+<section class="leave">
+    <h2>留言板</h2>
+    <ol id="messageList"></ol>
+    <div class="inputBox">
+        <form id="message">
+            <div>
+                昵称<input type="text" autocomplete="off" name="name">
+            </div>
+            <div>
+                内容<input type="text" autocomplete="off" name="content">
+            </div>
+            <input type="submit" name="提交" style="margin-top: 20px">
+        </form>
+    </div>
 </section>
 <!--tween缓动库-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
@@ -194,8 +208,7 @@
 <script src="./js/auto-slide-up.js"></script>
 <script src="./js/sticky-topbar.js"></script>
 <script src="./js/smoothly-navigation.js"></script>
-<!--<script src="./js/message.js"></script>-->
+<script src="./js/message.js"></script>
 
 </body>
-
 </html>

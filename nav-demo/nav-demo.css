@@ -154,3 +154,44 @@ section.portfolio .swiper-button-next{
     border-radius: 50%;
 }
 section.portfolio .swiper-button-next{ left: 100%;right: auto; }
+.leave{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.leave h2{
+    margin-bottom: 60px;
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+.inputBox{
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    width: 210px;
+    margin-top: 60px;
+    margin-bottom: 150px;
+}
+#message{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+#messageList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#messageList>li{
+    width: 400px;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 1px solid #b7b7b7;
+}
+
