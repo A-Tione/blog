@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/A-Tione/blog.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "A-Tione",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/A-Tione/blog/issues"
   },
